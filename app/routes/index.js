@@ -26,7 +26,7 @@ var parseJSONdb = new JsonDB(new Config("parseData", true, false, '/')); //БД 
 var confCodeJSONdb = new JsonDB(new Config("confirmCode", true, false, '/')); //БД ключей залогиненых пользователей
 
 
-MongoClient.connect(mdb.url     , (err, client) => { //Подключение к базе данных и загрузка ручек для обращения к ней
+MongoClient.connect('mongodb://localhost:27017', (err, client) => { //Подключение к базе данных и загрузка ручек для обращения к ней
     if (err) throw err;
     console.log("База данных успешно подключена");
     require('../routes/databaseRoutes')(app, client); //Подключение всех ручек из databaseRoutes.js
